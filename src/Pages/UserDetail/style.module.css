@@ -1,0 +1,30 @@
+
+.body {
+    display: flex;
+    gap: 10rem;
+}
+.leftContainer,
+.rightContainer {
+    min-width: 8rem;
+}
+
+.leftCard,
+.rightCard {
+    margin-bottom: 1.6rem;
+}
+
+.leftCard h3,
+.leftCard p,
+.rightCard h3,
+.rightCard p {
+    font-size: 15px;
+}
+.leftCard h3,
+.rightCard h3 {
+    text-decoration: underline;
+    margin-bottom: 0.5rem;
+}
+.leftCard p,
+.rightCard p {
+    color: rgba(57, 62, 70, 0.8);
+}

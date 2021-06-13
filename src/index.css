@@ -1,7 +1,7 @@
 * {
   font-family: 'Nunito', sans-serif;
 }
-p,body {
+p,body,h3 {
   margin: 0;
 }
 html,body,#root {
