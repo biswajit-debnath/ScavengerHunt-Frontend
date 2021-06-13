@@ -1,0 +1,10 @@
+.wrapper {
+    padding: 2rem 8rem 2rem 8rem;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.main {
+    align-self: center;
+    margin-top: 5.5rem;
+}

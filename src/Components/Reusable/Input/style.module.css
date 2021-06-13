@@ -1,0 +1,30 @@
+.container {
+    margin-bottom: 12px;
+}
+.labelContainer {
+    display: flex;
+    align-items: center;
+}
+.label {
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+.sideLabel {
+    margin-top: -5px;
+    margin-left: 4px;
+    font-size: 12px;
+    color: rgba(57, 62, 70, 0.6);;
+}
+.input {
+    border-radius: 6px;
+    height: 1.8rem;
+    border:1.5px solid rgba(57, 62, 70, 0.2);
+    width: 20rem;
+    padding-left: 10px;
+}
+.input:focus {
+    border-radius: 6px; 
+    border:1.5px solid rgba(57, 62, 70, 0.4);
+}
+

@@ -1,0 +1,32 @@
+.container {
+    background: rgba(41, 64, 211, 0.4);
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    width: 21rem;
+    margin-bottom: 1.2rem;
+}
+.container:hover {
+    cursor: pointer;
+    background: rgba(41, 64, 211, 0.43);
+}
+
+.header {
+    display: flex;
+}
+.header p {
+    font-size: 13px;
+    font-weight: 600;
+}
+.header p:last-child {
+    margin-left: auto;
+} 
+
+.values {
+    display: flex;
+}
+.values p {
+    color: white;
+}
+.values p:last-child {
+    margin-left: auto;
+} 
