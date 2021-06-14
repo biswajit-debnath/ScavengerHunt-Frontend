@@ -8,7 +8,14 @@ const Detail = ({userType})=> {
     const [data,setData] = useState({})
 
     useEffect(async ()=>{
-        const res =await UserService.getUserDetailById(2);
+        const user=JSON.parse(localStorage.getItem("currentUser"))
+        let userId;
+        userId=window.location.pathname.split("/")[3]
+
+        if(userType == "admin")
+            userId=window.location.pathname.split("/")[4]
+        
+        const res =await UserService.getUserDetailById(userId);
         if(res.status == 200){
             setData(res.data)
             setDataLoaded(true)
@@ -33,7 +40,7 @@ const Detail = ({userType})=> {
                     <div className={styles.leftCard}>
                         <h3>Address</h3>
                         <p>Platform Number</p>
-                        <p>{"fsdf"}</p>
+                        <p>{data.address.replace("Platform Number ","")}</p>
                     </div>
                     <div className={styles.leftCard}>
                         <h3>City</h3>
@@ -47,10 +54,10 @@ const Detail = ({userType})=> {
                         <p>{data.branchname}</p>
                     </div>
                     <div className={styles.rightCard}>
-                        <h3>Contect Number</h3>
-                        <p>{data.contactnumber}</p>
-                        <p>30281570</p>
-                        <p>8961369388</p>
+                        <h3>Contact Number</h3>
+                        {data.contactnumbers? 
+                        data.contactnumbers.split(",").map(no=><p key={no}>{no}</p>)
+                        :null}
                     </div>
                     <div className={styles.rightCard}>
                         <h3>Branch Incharge</h3>
@@ -58,10 +65,12 @@ const Detail = ({userType})=> {
                     </div>
                     <div className={styles.rightCard}>
                         <h3>Pincode Covered</h3>
-                        <p>700110, 700111, 700112</p>
-                        <p>700113, 700114, 700115</p>
-                        <p>700116, 700115, 700115</p>
-                        <p>700117, 700118, 700119</p>
+                        {
+                            data.pincodes.map((pincode,i)=>{
+                                if(i%3==0)
+                                    return <p>{data.pincodes[i]}, {data.pincodes[i+1]}, {data.pincodes[i+2]}</p>
+                            })
+                        }
                     </div>
                 </div>
             </div>

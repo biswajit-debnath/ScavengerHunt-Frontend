@@ -1,4 +1,3 @@
-import './App.css';
 import { Redirect, Route, Switch } from "react-router-dom";
 import PublicLayout from './Layouts/PublicLayout/PublicLayout';
 import AuthLayout from "./Layouts/AuthLayout/AuthLayout"

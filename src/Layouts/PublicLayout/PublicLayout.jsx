@@ -15,7 +15,7 @@ function PublicLayout() {
       <div className={styles.main}>
         <Route path="/public/home" component={Home}/>
         <Route path="/public/listings/:pincode" component={Listings} />
-        <Route path="/public/user/detail" component={UserDetail} />        
+        <Route path="/public/user/:id" component={UserDetail} />        
       </div>
     </div>
   );

@@ -22,11 +22,11 @@ const Listings = ({userType})=> {
 
     useEffect(async ()=>{
         let res;
-        if(userType == "admin")
-            res =await UserService.getAllUsers(1);
+        if(userType == "admin"){
+            const user= JSON.parse(localStorage.getItem("currentUser"))
+            res =await UserService.getAllUsers(user.userId);
+        }
         else{
-            
-            console.log("pincode",pincode);
             res =await UserService.getUsersByPincode(pincode);
         }
 

@@ -1,7 +1,15 @@
+const authHeader = () => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+    if (currentUser && currentUser.authToken)
+      return { Authorization: `Bearer ${currentUser.authToken}` };
+    else return {};
+  };
 
+  
 const getAllNotificationsById =async (id) => {
     const requestOptions = {
         method: "GET",
+        headers: authHeader() 
       };
 
     try {
@@ -22,6 +30,7 @@ const getAllNotificationsById =async (id) => {
 const readAllNewNotification= async(id)=> {
     const requestOptions = {
         method: "GET",
+        headers: authHeader() 
       };
 
     try {

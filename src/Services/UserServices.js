@@ -1,7 +1,14 @@
+const authHeader = () => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+    if (currentUser && currentUser.authToken)
+      return { Authorization: `Bearer ${currentUser.authToken}` };
+    else return {};
+  };
+
 
 const getUserDetailById =async (id) => {
     const requestOptions = {
-        method: "GET",
+        method: "GET"
       };
 
     try {
@@ -22,6 +29,7 @@ const getUserDetailById =async (id) => {
 const getAllUsers =async (adminId) => {
     const requestOptions = {
         method: "GET",
+        headers: authHeader() 
       };
     try {
         const res =await fetch(

@@ -21,7 +21,7 @@ const LoggedInTopBar = ()=> {
                                         //     token: "123"   //Todo later
                                         // },
                                         query: {
-                                            "userId": "3"
+                                            "userId": (JSON.parse(localStorage.getItem("currentUser"))).userId
                                         }
                                     })
         socket.on("notification", data => {
@@ -39,7 +39,7 @@ const LoggedInTopBar = ()=> {
                     {
                         newNotificationNo ? <div className={styles.circle}>{newNotificationNo}</div> :null
                     }
-                    {showNotificationPanel?<NotificationPanel setShowNotificationPanel={setShowNotificationPanel}/>:null}
+                    {showNotificationPanel?<NotificationPanel setNewNotificationNo={setNewNotificationNo} setShowNotificationPanel={setShowNotificationPanel}/>:null}
                 </div>
                 <button onClick={handleLogout} className={styles.button}>Logout</button>
             </div>

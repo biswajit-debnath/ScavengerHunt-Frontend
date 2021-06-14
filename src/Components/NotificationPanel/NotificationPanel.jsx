@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react'
 import styles from "./style.module.css";
 import {NotificationService} from "./../../Services/NotificationService"
 
-const NotificationPanel = ({setShowNotificationPanel})=> {
+const NotificationPanel = ({setShowNotificationPanel,setNewNotificationNo})=> {
     const [newNotifications,setNewNotifications] = useState([])
     const [oldNotifications,setOldNotifications] = useState([])
     const [dataLoaded,setDataLoaded] = useState(false);
+    const [currentUser,setCurrentUser]= useState({})
 
 
     const handleOnClose =async (e) => {
         e.stopPropagation()
         setShowNotificationPanel(false)
-        const res =await NotificationService.readAllNewNotification(1);
+        const res =await NotificationService.readAllNewNotification(currentUser.userId);
         if(res.status == 200){
+            setNewNotificationNo(0)
             return
         }
         else{
@@ -21,7 +23,9 @@ const NotificationPanel = ({setShowNotificationPanel})=> {
     }
 
     useEffect(async ()=> {
-        const res =await NotificationService.getAllNotificationsById(1);
+        const user = JSON.parse(localStorage.getItem("currentUser"))
+        setCurrentUser(user)
+        const res =await NotificationService.getAllNotificationsById(user.userId);
         if(res.status == 200){
             setNewNotifications(res.data.new)
             setOldNotifications(res.data.old)
