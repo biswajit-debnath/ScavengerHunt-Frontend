@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../Components/Reusable/Header/Header'
 import styles from "./style.module.css"
+import {UserService} from "./../../Services/UserServices"
 
-const Detail = ()=> {
+const Detail = ({userType})=> {
+    const [dataLoaded,setDataLoaded] = useState(false);
+    const [data,setData] = useState({})
+
+    useEffect(async ()=>{
+        const res =await UserService.getUserDetailById(2);
+        if(res.status == 200){
+            setData(res.data)
+            setDataLoaded(true)
+        }
+        else{
+            console.log("This error needs to be generated");
+        }
+    },[])
+    
+
+    if(!dataLoaded)
+        return <div>Loading......</div>
     return (
         <div className={styles.container}>
             <Header text="Info" />
@@ -10,33 +28,33 @@ const Detail = ()=> {
                 <div className={styles.leftContainer}>
                     <div className={styles.leftCard}>
                         <h3>Institution Name</h3>
-                        <p>Beetle Nut</p>
+                        <p>{data.institutionname}</p>
                     </div>
                     <div className={styles.leftCard}>
                         <h3>Address</h3>
-                        <p>Platform Number </p>
-                        <p>9 3/47</p>
+                        <p>Platform Number</p>
+                        <p>{"fsdf"}</p>
                     </div>
                     <div className={styles.leftCard}>
                         <h3>City</h3>
-                        <p>Gofar Singh</p>
+                        <p>{data.city}</p>
                     </div>
                     
                 </div>
                 <div className={styles.rightContainer}>
                     <div className={styles.rightCard}>
                         <h3>Branch Name</h3>
-                        <p>The Cheesecake Factory</p>
+                        <p>{data.branchname}</p>
                     </div>
                     <div className={styles.rightCard}>
                         <h3>Contect Number</h3>
-                        <p>22435157</p>
+                        <p>{data.contactnumber}</p>
                         <p>30281570</p>
                         <p>8961369388</p>
                     </div>
                     <div className={styles.rightCard}>
                         <h3>Branch Incharge</h3>
-                        <p>Mr Ranchodas Syamaldas Chhanchad</p>
+                        <p>{data.branchincharge}</p>
                     </div>
                     <div className={styles.rightCard}>
                         <h3>Pincode Covered</h3>

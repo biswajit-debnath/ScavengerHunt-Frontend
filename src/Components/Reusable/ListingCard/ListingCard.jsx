@@ -1,16 +1,16 @@
 import React from 'react'
 import styles from "./style.module.css";
 
-const ListingCard = ({label,sideLabel,type,name})=> {
+const ListingCard = ({data})=> {
     return (
         <div className={styles.container}>
             <div className={styles.header}>
                 <p>Institution</p>
-                <p>Branch</p>
+                <p>{data.institutionname}</p>
             </div>
             <div className={styles.values}>
-                <p>Bettle Nut</p>
-                <p>Sea of Theseus</p>
+                <p>Branch</p>
+                <p>{data.branchname}</p>
             </div>
         </div>
     )

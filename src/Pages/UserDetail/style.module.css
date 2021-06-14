@@ -1,7 +1,7 @@
 
 .body {
     display: flex;
-    gap: 10rem;
+    gap: 20rem;
 }
 .leftContainer,
 .rightContainer {
@@ -27,4 +27,5 @@
 .leftCard p,
 .rightCard p {
     color: rgba(57, 62, 70, 0.8);
+    font-weight: 600;
 }

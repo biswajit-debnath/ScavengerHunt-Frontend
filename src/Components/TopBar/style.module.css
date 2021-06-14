@@ -1,8 +1,52 @@
 .container {
     display: flex;
-    
 }
 .p {
     font-size: 14px;
     margin-left: auto;
+}
+.innerContainer {
+    margin-left: auto;
+    display: flex;
+}
+.img {
+    position: relative;
+}
+.img img {
+    width: 2rem;
+
+}
+
+.img img:hover,
+.circle:hover {
+    cursor: pointer;
+    
+}
+.circle {
+    position: absolute;
+    background-color: #2940D3;
+    border-radius: 50%;
+    color: white;
+    width: 1rem;
+    height: 1rem;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 600;
+    top:18px;
+    right: -1px;
+}
+
+.button {
+    margin-left: 1.5rem;
+    border-radius: 10px;
+    color: rgba(57, 62, 70, 0.8);
+    background-color: transparent;
+    border:1px solid black;
+    font-weight: 600;
+    height: 1.6rem;
+    padding: 0 0.6rem;
+}
+
+.button:hover {
+    cursor: pointer;
 }

@@ -8,7 +8,7 @@ const Input = ({label,sideLabel,type,name})=> {
                 <p className={styles.label}>{label}</p>
                 <span className={styles.sideLabel}>{sideLabel?`(${sideLabel})`:""}</span>
             </div>
-            <input type={type?type:"text"} name={label} className={styles.input}/>
+            <input type={type?type:"text"} name={label} className={styles.input} required/>
         </div>
     )
 }
